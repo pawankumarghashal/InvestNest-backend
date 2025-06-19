@@ -215,6 +215,25 @@ app.post("/newOrder", async (req, res) => {
   res.send("Order saved!");
 });
 
+
+app.post("/send-otp", (req, res) => {
+  const { phone } = req.body;
+
+  if (!phone) {
+    return res.status(400).json({ success: false, message: "Phone number required" });
+  }
+
+  // Dummy logic — actual OTP SMS system ke bina
+  console.log(`Sending OTP to: ${phone}`);
+
+  res.json({ success: true, message: "OTP sent successfully!" });
+});
+
+
+
+
+
+
 app.listen(PORT,()=>{
     console.log("App started");
     mongoose.connect(url);
